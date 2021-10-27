@@ -1,0 +1,70 @@
+
+<HomeMainScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: app.theme_cls.accent_color
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: dp(30), dp(40)
+            MDBoxLayout:
+                orientation: 'vertical'
+                spacing: dp(15)
+                MDBoxLayout:
+                    adaptive_height: True
+                    spacing: dp(10)
+                    MDIcon:
+                        icon: "assets/images.png"
+                        size_hint: None, None
+                        size: dp(60), dp(60)
+                        pos_hint: {"center_y": .5}
+                        canvas:
+                            Color:
+                                rgb: 1,1,1
+                            Line:
+                                width: dp(3)
+                                ellipse: self.pos + self.size
+                    MDLabel:
+                        text: "TODO"
+                        bold: True
+                        font_size: sp(20)
+                MDBoxLayout:
+                    adaptive_height: True
+                    orientation: 'vertical'
+                    padding: dp(15), dp(20)
+                    spacing: dp(20)
+                    MDLabel:
+                        text: 'Login If you have an account'
+                        halign: 'center'
+                        font_size: sp(15)
+                        adaptive_height: True
+                    MDTextField:
+                        hint_text: "Username"
+                        mode: "rectangle"
+                        icon_right: "account"
+                        icon_right_color: 1,1,1,1
+                    MDTextField:
+                        hint_text: "Password"
+                        mode: "rectangle"
+                        icon_right: "lock"
+                        icon_right_color: 1,1,1,1
+                    MDTextField:
+                        hint_text: "Confirm Password"
+                        mode: "rectangle"
+                        icon_right: "lock"
+                        icon_right_color: 1,1,1,1
+                MDBoxLayout:
+                MDRaisedButton:
+                    text: "        [color=#FFFFFF][b]REGISTER[/b][/color]        "
+                    font_size: sp(14)
+                    pos_hint: {'center_x': .5}
+                    md_bg_color: C("#FF4422")
+        MDLabel:
+            text: '[u]Already have Have an Account ? [ref=login]Login[/ref][/u]'
+            on_ref_press: print(self.refs)
+            markup: True
+            color: 1,1,1
+            adaptive_height: True
+            padding: 0, dp(10)
+            font_size: sp(13)
+            bold: True
+            halign: 'center'
