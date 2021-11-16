@@ -2,69 +2,66 @@
 <HomeMainScreen>:
     MDBoxLayout:
         orientation: 'vertical'
-        md_bg_color: app.theme_cls.accent_color
+        md_bg_color: 1,1,1,1
         MDBoxLayout:
             orientation: 'vertical'
-            padding: dp(30), dp(40)
+            canvas.before:
+                Color:
+                    rgba: [1, 1, 1, 1]
+                Rectangle:
+                    size: self.size
+                    pos: self.x, self.y + dp(root.bg_pos)
+                    source: "assets/image.jpg"
             MDBoxLayout:
                 orientation: 'vertical'
-                spacing: dp(15)
-                MDBoxLayout:
+                spacing: dp(10)
+                adaptive_height: True
+                md_bg_color: 1,1,1,1
+                radius: [dp(35), dp(35), 0, 0]
+                padding: dp(30), dp(20)
+                MDLabel:
+                    text: "Get Started"
+                    font_style: "H5"
+                    color: app.theme_cls.primary_color
+                    bold: True
                     adaptive_height: True
-                    spacing: dp(10)
-                    MDIcon:
-                        icon: "assets/images.png"
-                        size_hint: None, None
-                        size: dp(60), dp(60)
-                        pos_hint: {"center_y": .5}
-                        canvas:
-                            Color:
-                                rgb: 1,1,1
-                            Line:
-                                width: dp(3)
-                                ellipse: self.pos + self.size
-                    MDLabel:
-                        text: "TODO"
-                        bold: True
-                        font_size: sp(20)
                 MDBoxLayout:
                     adaptive_height: True
                     orientation: 'vertical'
-                    padding: dp(15), dp(20)
-                    spacing: dp(20)
-                    MDLabel:
-                        text: 'Login If you have an account'
-                        halign: 'center'
-                        font_size: sp(15)
-                        adaptive_height: True
                     MDTextField:
-                        hint_text: "Username"
-                        mode: "rectangle"
-                        icon_right: "account"
-                        icon_right_color: 1,1,1,1
+                        hint_text: "Name"
+                    MDTextField:
+                        hint_text: "E-mail"
                     MDTextField:
                         hint_text: "Password"
-                        mode: "rectangle"
-                        icon_right: "lock"
-                        icon_right_color: 1,1,1,1
-                    MDTextField:
-                        hint_text: "Confirm Password"
-                        mode: "rectangle"
-                        icon_right: "lock"
-                        icon_right_color: 1,1,1,1
                 MDBoxLayout:
-                MDRaisedButton:
-                    text: "        [color=#FFFFFF][b]REGISTER[/b][/color]        "
-                    font_size: sp(14)
-                    pos_hint: {'center_x': .5}
-                    md_bg_color: C("#FF4422")
-        MDLabel:
-            text: '[u]Already have Have an Account ? [ref=login]Login[/ref][/u]'
-            on_ref_press: print(self.refs)
-            markup: True
-            color: 1,1,1
-            adaptive_height: True
-            padding: 0, dp(10)
-            font_size: sp(13)
-            bold: True
-            halign: 'center'
+                    adaptive_height: True
+                    MDCheckbox:
+                        size_hint: None, None
+                        size: dp(40), dp(40)
+                        pos_hint: {'center_y': .5}
+                    MDLabel:
+                        text:
+                            "I agree to the [color=#0044CC]Terms of Service[/color] and [color=#0044CC]Privacy Policy[/color]"
+                        markup: True
+                        color: .3,.3,.3
+                        font_size: sp(10)
+                        pos_hint: {'center_y': .5}
+                        adaptive_size: True
+                MDBoxLayout:
+                    adaptive_height: True
+                    MDLabel:
+                        text: "Sign Up"
+                        bold: True
+                        color: app.theme_cls.primary_color
+                        font_style: "H6"
+                        adaptive_height: True
+                        pos_hint: {'center_y': .5}
+                    MDFloatingActionButton:
+                        icon: "arrow-right"
+                        on_release: root.toggle_bg_pos()
+                MDTextButton:
+                    text: "[u]Sign In[/u]"
+                    markup: True
+                    theme_text_color: "Custom"
+                    text_color: app.theme_cls.primary_color
