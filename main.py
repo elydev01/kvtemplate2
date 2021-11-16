@@ -17,12 +17,7 @@ class Kvtemplate2App(MDApp):
     manager = p.ObjectProperty(None)
 
     def build(self):
-        self.theme_cls.primary_palette = "Amber"
-        self.theme_cls.primary_hue = "50"
-        self.theme_cls.accent_palette = "Green"
-        self.theme_cls.accent_hue = "400"
-        self.theme_cls.theme_style = "Dark"
-
+        self.theme_cls.primary_palette = "Indigo"
         self.manager = MainSreenManager()
         return self.manager
 
